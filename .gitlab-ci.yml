@@ -1,0 +1,12 @@
+image: ruby:8.8.0
+
+stages:
+  - build
+
+build-peatio:
+  stage: build
+  image: docker:latest
+  script:
+    - docker build -t git.paymium.fr:5001/blockchain.io/peatio:${CI_COMMIT_REF_NAME} .
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN git.paymium.fr:5001
+    - docker push git.paymium.fr:5001/blockchain.io/peatio:${CI_COMMIT_REF_NAME}
