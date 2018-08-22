@@ -1,5 +1,19 @@
 // GENERAL
 
+.custom{
+  img{
+    display:    block;
+    margin:     0 auto;
+    width:      auto;
+    height:     auto;
+    max-width:  200px;
+    max-height: 40px;
+    transform:  translateY(-50%);
+    position:   absolute;
+    top:        4%;
+    left:       20px;
+  }
+}
 body {
   height: 100vh;
 }
