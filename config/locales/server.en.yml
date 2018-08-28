@@ -388,10 +388,10 @@ en:
       panel: Login
       new:
         title: Login my account
-        intro: Login Peatio now for you to exchange.
+        intro: Login now for you to exchange.
       failure:
         title: Login my account
-        intro: Login Peatio now for you to exchange.
+        intro: Login now for you to exchange.
     hints:
       deposit:
         bank:
@@ -568,11 +568,6 @@ en:
   'true': true
   'false': false
   view_on_github: View on Github
-  slogan:
-    heading: Peatio Open-Source Exchange
-    subheading: Cloud deployment made simple and secure
-    text1: Peatio - Cryptocurrency exchange for managing digital currency.
-    text2: We provide Peatio installation and configuration services.
   trade:
     markets: Markets
     realtime_price:
@@ -583,7 +578,7 @@ en:
     ask: Ask
     bid: Bid
     notification:
-      title: Peatio Exchange
+      title: BCIO Exchange
       enabled: Notification enabled.
       new_trade: "%{kind} order#%{id} executed at %{price} %{quote_unit} for %{volume} %{base_unit}。"
   back: Back
