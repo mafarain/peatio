@@ -9,6 +9,8 @@ module APIv2
       expose :volume
       expose :funds
       expose :market_id, as: :market
+      expose :bid_id
+      expose :ask_id
       expose :created_at, format_with: :iso8601
 
       expose :side do |trade, options|

@@ -16,6 +16,8 @@ describe APIv2::Entities::Trade do
 
   it { expect(subject.funds).to eq trade.funds }
   it { expect(subject.market).to eq trade.market_id }
+  it { expect(subject.ask_id).to eq trade.ask_id }
+  it { expect(subject.bid_id).to eq trade.bid_id }
 
   it { expect(subject.side).to eq 'sell' }
 
