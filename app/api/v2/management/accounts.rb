@@ -21,6 +21,29 @@ module API
           present account, with: API::V2::Management::Entities::Balance
           status 200
         end
+
+        desc 'Queries the accounts where balance is not nil for the given currency.' do
+          @settings[:scope] = :read_accounts
+          success API::V2::Management::Entities::Balance
+        end
+
+        params do
+          requires :currency, type: String, values: -> { Currency.codes(bothcase: true) }, desc: 'The currency code.'
+          optional :page,     type: Integer, default: 1,   integer_gt_zero: true, desc: 'The page number (defaults to 1).'
+          optional :limit,    type: Integer, default: 100, range: 1..1000, desc: 'The number of deposits per page (defaults to 100, maximum is 1000).'
+        end
+
+        post '/accounts/balances' do
+          currency = Currency.find(params[:currency])
+
+          Account
+            .tap { |q| q.where!(currency: currency) if currency }
+            .tap { |q| q.where!('balance > ? OR locked > ?', 0, 0) }
+            .page(params[:page])
+            .per(params[:limit])
+            .tap { |q| present q, with: API::V2::Management::Entities::Balance }
+          status 200
+        end
       end
     end
   end
